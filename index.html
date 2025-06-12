@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brand - E-commerce</title>
     <link rel="stylesheet" href="style.css">
+    <script src="./resuse.js" defer></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- Mobile Sidebar Overlay -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay"></div>
-    
+
     <!-- Mobile Sidebar -->
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
@@ -22,7 +22,7 @@
                 <span>Sign in | Register</span>
             </div>
         </div>
-        
+
         <div class="mobile-sidebar-content">
             <ul class="mobile-menu">
                 <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
@@ -33,7 +33,7 @@
                 <li><a href="#"><i class="fas fa-envelope"></i> Contact us</a></li>
                 <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
             </ul>
-            
+
             <div class="mobile-sidebar-footer">
                 <div class="footer-links">
                     <a href="#">User agreement</a>
@@ -45,131 +45,33 @@
     </div>
 
     <!-- top most header -->
-    <header class="header">
-        <div class="container">
-            <!-- Mobile Header -->
-            <div class="mobile-header">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="brand-logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-shopping-bag"></i>
-                    </div>
-                    <span>Brand</span>
-                </div>
-                <div class="mobile-header-icons">
-                    <i class="fas fa-shopping-cart"></i>
-                    <i class="fas fa-user"></i>
-                </div>
-            </div>
-
-            <!-- Desktop Header -->
-            <div class="desktop-header">
-                <div class="brand-logo">
-                    <div class="logo-icon">
-                        <i class="far fa-shopping-bag"></i>
-                    </div>
-                    <span>Brand</span>
-                </div>
-
-                <div class="search-section">
-                    <input type="text" placeholder="Search" class="search-input">
-                    <select class="category-select">
-                        <option>All category</option>
-                        <option>Category NO 1</option>
-                        <option>Category NO 2</option>
-                        <option>Category NO 3</option>
-                    </select>
-                    <button class="search-btn">Search</button>
-                </div>
-
-                <div class="header-icons">
-                    <div class="i">
-                        <i class="fas fa-user"></i>
-                        <span>Profile</span>
-                    </div>
-                    <div class="i">
-                        <i class="fas fa-envelope"></i>
-                        <span>Message</span>
-                    </div>
-                    <div class="i">
-                        <i class="fas fa-heart"></i>
-                        <span>Orders</span>
-                    </div>
-                    <div class="i">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>Carts</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
+   <fake-header></fake-header>
     <!-- Mobile Search Section -->
-    <div class="mobile-search-section">
-        <div class="mobile-search-wrapper">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search" class="mobile-search-input">
-        </div>
-    </div>
+    
+    
+    <fake-search></fake-search>
+    
 
     <!-- Mobile Category Tabs -->
     <div class="mobile-category-tabs">
         <div class="category-tab active">All category</div>
         <div class="category-tab">Gadgets</div>
         <div class="category-tab">Clothes</div>
-        <div class="category-tab">Accessories</div><div class="category-tab">Gadgets</div>
+        <div class="category-tab">Accessories</div>
+        <div class="category-tab">Gadgets</div>
         <div class="category-tab">Clothes</div>
-        <div class="category-tab">Accessories</div><div class="category-tab">Gadgets</div>
+        <div class="category-tab">Accessories</div>
+        <div class="category-tab">Gadgets</div>
         <div class="category-tab">Clothes</div>
         <div class="category-tab">Accessories</div>
     </div>
 
-    <!-- Navigation exactly as image -->
-    <nav class="navigation">
-        <div class="container">
-            <div class="nav-left">
-                <button class="nav-item">
-                    <i class="fas fa-bars"></i>
-                    All category
-                </button>
-                <a href="#" class="nav-item">Hot offers</a>
-                <a href="#" class="nav-item">Gift boxes</a>
-                <a href="#" class="nav-item">Projects</a>
-                <a href="#" class="nav-item">Menu item</a>
-                <a href="#" class="nav-item">Help</a>
-                <select class="cureency" style="padding: 0;">
-                    <option></option>
-                    <option></option>
-                </select>
-            </div>
-            <div class="nav-right">
-                <select class="cureency" id="currrency">
-                    <option>English, USD</option>
-                    <option>Pakistan, PKR</option>
-                    <option>India, INR</option>
-                </select>
-                <label for="ship">Ship to</label>
-                <select class="flag" id="ship">
-                    <option><img src="./Image/flag/p0.png" alt="pk"></option>
-                    <option><img src="./Image/flag/p1.png" alt=""></option>
-                    <option><img src="./Image/flag/p2.png" alt=""></option>
-                    <option><img src="./Image/flag/p3.png" alt=""></option>
-                    <option><img src="./Image/flag/p4.png" alt=""></option>
-                    <option><img src="./Image/flag/p5.png" alt=""></option>
-                    <option><img src="./Image/flag/p6.png" alt=""></option>
-                    <option><img src="./Image/flag/p7.png" alt=""></option>
-                    <option><img src="./Image/flag/p8.png" alt=""></option>
-                    <option><img src="./Image/flag/p9.png" alt=""></option>
-                </select>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation -->
+    <fake-nav></fake-nav>
 
     <!-- Main content area -->
     <div class="main-content">
-        <!-- Banner section exactly as image -->
+        <!-- Banner section -->
         <section class="banner-section">
             <div class="sidebar-menu">
                 <ul>
@@ -220,7 +122,7 @@
             </div>
         </section>
 
-        <!-- Mobile Banner (Alternative layout for mobile) -->
+        <!-- Mobile Banner -->
         <section class="mobile-banner">
             <div class="mobile-banner-content">
                 <h3>Latest trending</h3>
@@ -234,7 +136,7 @@
             <div class="deals-header">
                 <div>
                     <h2>Deals and offers</h2>
-                <p>Hygiene equipments</p>
+                    <p>Hygiene equipments</p>
                 </div>
                 <div class="countdown">
                     <span class="time-box">13
@@ -281,7 +183,7 @@
         <!-- Home and outdoor section -->
         <section class="home-outdoor">
             <div class="section-header sp">
-                <h2>Home and<br>outdoor</h2>
+                <h2>Home and outdoor</h2>
                 <button class="source-btn">Source now</button>
             </div>
 
@@ -343,12 +245,13 @@
                     </div>
                 </div>
             </div>
+            <a href="" class="newq"> Source Now <i class="fa-solid fa-arrow-right"></i></a>
         </section>
 
         <!-- Consumer electronics section -->
         <section class="consumer-electronics">
             <div class="section-header jp">
-                <h2>Consumer<br>electronics<br>and gadgets</h2>
+                <h2>Consumer electronics and gadgets</h2>
                 <button class="source-btn">Source now</button>
             </div>
 
@@ -410,15 +313,20 @@
                     </div>
                 </div>
             </div>
+            <a href="" class="newq"> Source Now <i class="fa-solid fa-arrow-right"></i></a>
+
         </section>
 
-        <!-- Request section exactly as image -->
+        <!-- Request section -->
         <section class="request-section">
             <div class="screen">
                 <div class="request-content">
                     <h2>An easy way to send<br>requests to all suppliers</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing<br>elit, sed do eiusmod tempor incididunt.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing<br>elit, sed do eiusmod tempor incididunt.
+                    </p>
                 </div>
+                <button class="send-inquiry not">Send inquiry</button>
+
 
                 <div class="request-form none">
                     <h3>Send quote to suppliers</h3>
@@ -437,7 +345,7 @@
             </div>
         </section>
 
-        <!-- Recommended items exactly as image -->
+        <!-- Recommended item -->
         <section class="recommended-section">
             <h2>Recommended items</h2>
 
@@ -497,7 +405,7 @@
             </div>
         </section>
 
-        <!-- Services section exactly as image -->
+        <!-- Services section  -->
         <section class="services-section">
             <h2>Our extra services</h2>
             <div class="services-grid">
@@ -532,7 +440,7 @@
             </div>
         </section>
 
-        <!-- Suppliers section exactly as image -->
+        <!-- Suppliers section-->
         <section class="suppliers-section">
             <h2>Suppliers by region</h2>
 
@@ -611,96 +519,12 @@
         </section>
     </div>
 
-    <!-- Newsletter exactly as image -->
-    <section class="newsletter">
-        <div class="newsletter-content">
-            <h2>Subscribe on our newsletter</h2>
-            <p>Get daily news on upcoming offers from many suppliers all over the world</p>
-            <div class="newsletter-form">
-                <div class="input-icon-wrapper">
-                    <i class="fa fa-envelope"></i>
-                    <input type="email" placeholder="Email" class="newsletter-input">
-                </div>
-                <button class="subscribe-btn">Subscribe</button>
-            </div>
-        </div>
-    </section>
+    <!-- Newsletter -->
+   <fake-sub>
+   </fake-sub>
 
-    <!-- Footer exactly as image -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-brand">
-                    <i class="far fa-shopping-bag"></i>
-                    <span>Brand</span>
-                </div>
-                <p>Best information about the company<br>gies here but now lorem ipsum is</p>
-                <div class="social-icons">
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-youtube"></i>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h4>About</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Find store</a></li>
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="#">Blogs</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Partnership</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Find store</a></li>
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="#">Blogs</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Information</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Money Refund</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Contact us</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>For users</h4>
-                <ul>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">My Orders</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Get app</h4>
-                <div class="app-downloads">
-                    <img src="./Image/app.jpg" alt="App Store">
-                    <img src="./Image/google.jpg" alt="Google Play">
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2023 Ecommerce.</p>
-            <div class="footer-lang">
-                <img src="./Image/flag/china.png" alt="English">
-                <span>English</span>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer-->
+    <fake_footer></fake_footer>
 
     <script src="script.js"></script>
 </body>
