@@ -78,7 +78,7 @@ class ftabs extends HTMLElement {
     }
 }
 
-customElements.define('fake_footer', ftabs);
+customElements.define('fake-footer', ftabs);
 
 
 class fhead extends HTMLElement {

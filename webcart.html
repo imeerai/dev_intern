@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcart | Brand E-commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/Image/logo.png" />
+    <script src="/resuse.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .che .search-section {
+            display: none;
+        }
+
+        .mobil-header {
+            background: white;
+            padding: 1rem;
+            display: none;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobil-header h1 {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .cart-content {
+    flex: 1;
+}
+
+.desktop-title h1 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.cart-itms {
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+.cart-itm {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    gap: 1rem;
+}
+.cart-itm:last-child {
+    border-bottom: none;
+}
+
+.itm-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    background: #f0f0f0;
+}
+.itm-details {
+    flex: 1;
+}
+.itm-details h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+.item-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+.seller {
+    color: #666;
+}
+
+.item-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.remove-btn, .save-later-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+}
+
+.remove-btn {
+    color: #ff4757;
+}
+
+.save-later-btn {
+    color: #4285f4;
+}
+
+.item-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+}
+
+.qty-btn {
+    background: none;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #666;
+    font-size: 1.2rem;
+}
+
+.qty-btn:hover {
+    background: #f0f0f0;
+    border-radius: 0.25rem;
+}
+
+.quantity {
+    min-width: 2rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.item-price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+
+.mobile-men-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.back-to-shop {
+    background: #4285f4;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.remove-all {
+    background: none;
+    border: none;
+    color: #4285f4;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.mobile-only{
+    display: none;
+}
+
+.mobile-summary {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    color: #666;
+}
+
+.summary-row .total {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1rem;
+    border-top: 1px solid #eee;
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.sidebar {
+    width: 300px;
+}
+
+.coupon-section, .order-summary {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.coupon-section h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.coupon-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.coupon-input input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.apply-btn {
+    background: #4285f4;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.order-summary .summary-row {
+    margin-bottom: 0.75rem;
+}
+
+.order-summary .summary-row.discount {
+    color: #ff4757;
+}
+
+.order-summary .summary-row.tax {
+    color: #2ed573;
+}
+
+.order-summary .summary-row.total {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    border-top: 1px solid #eee;
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: #2ed573;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.checkout-btn:hover {
+    background: #26d467;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.payment-methods img {
+    height: 20px;
+    width: 30px;
+    background: #f0f0f0;
+    border-radius: 0.25rem;
+}
+
+.features {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #666;
+}
+
+.feature i {
+    font-size: 1.5rem;
+    color: #999;
+}
+
+.feature h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: #333;
+}
+
+.feature p {
+    font-size: 0.8rem;
+}
+
+.saved-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.saved-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.saved-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.saved-item {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.saved-image img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    background: #f0f0f0;
+    margin-bottom: 1rem;
+}
+
+.saved-details h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.saved-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.saved-price-mobile {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.saved-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.move-to-cart {
+    background: none;
+    border: 1px solid #4285f4;
+    color: #4285f4;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.remove-saved {
+    background: none;
+    border: none;
+    color: #ff4757;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+}
+
+/* Promotional Banner */
+.promo-banner {
+    background: linear-gradient(135deg, #4285f4, #1a73e8);
+    color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.promo-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.promo-content p {
+    opacity: 0.9;
+}
+
+.shop-now-btn {
+    background: #ff9500;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+
+        @media (max-width: 720px) {
+            .che {
+                display: none;
+            }
+
+            .mobil-header {
+                display: flex;
+            }
+            .cart-itm {
+        padding: 1rem;
+        align-items: flex-start;
+    }
+    .itm-details h3 {
+        font-size: 0.9rem;
+    }
+
+    .mobile-men-btn {
+        order: 3;
+    }
+
+     
+    .desktop-only {
+        display: none !important;
+    }
+    
+    .mobile-only {
+        display: block !important;
+    }
+
+    
+    
+    .item-controls {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .quantity-controls {
+        order: 1;
+    }
+    
+    .item-price {
+        order: 2;
+        font-size: 1rem;
+    }
+    
+    
+    
+    .cart-actions {
+        display: none;
+    }
+    
+    .saved-items {
+        grid-template-columns: 1fr;
+    }
+    
+    .saved-item {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .saved-image {
+        flex-shrink: 0;
+    }
+    
+    .saved-image img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0;
+    }
+    
+    .saved-details {
+        flex: 1;
+    }
+    
+    .saved-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 0.5rem;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <fake-header class="che"></fake-header>
+    <!-- Mobile Header -->
+    <header class="mobil-header">
+        <button class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <h1>Shopping cart</h1>
+    </header>
+
+    <main class="container">
+
+        <div >
+            <div class="cart-content">
+                <!-- Desktop Title -->
+                <div class="desktop-title">
+                    <h1>My cart (<span id="cart-count">3</span>)</h1>
+                </div>
+
+                <!-- Cart Items -->
+                <div class="cart-itms">
+                    <div class="cart-itm" data-id="1">
+                        <div class="itm-image">
+                            <img src="/Image/cloth/tshirt.jpg" alt="T-shirt">
+                        </div>
+                        <div class="itm-details">
+                            <h3>T-shirts with multiple colors, for men and lady</h3>
+                            <div class="item-specs">
+                                <span>Size: medium, Color: blue, Material: Plastic</span>
+                                <span class="seller">Seller: Artel Market</span>
+                            </div>
+                            <div class="item-actions desktop-only">
+                                <button class="remove-btn">Remove</button>
+                                <button class="save-later-btn">Save for later</button>
+                            </div>
+                        </div>
+                        <div class="item-controls">
+                            <div class="item-price">$78.99</div>
+
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus">-</button>
+                                <span class="quantity">9</span>
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-itm" data-id="2">
+                        <div class="itm-image">
+                            <img src="/Image/cloth/bag.jpg" alt="Backpack">
+                        </div>
+                        <div class="itm-details">
+                            <h3 class="desktop-only">T-shirts with multiple colors, for men and lady</h3>
+                            <h3 class="mobile-only">Solid Backpack blue jeans large size</h3>
+                            <div class="item-specs">
+                                <span>Size: medium, Color: blue, Material: Plastic</span>
+                                <span class="seller">Seller: <span class="desktop-only">Best factory LLC</span><span
+                                        class="mobile-only">Artel Market</span></span>
+                            </div>
+                            <div class="item-actions desktop-only">
+                                <button class="remove-btn">Remove</button>
+                                <button class="save-later-btn">Save for later</button>
+                            </div>
+                        </div>
+                        <div class="item-controls">
+                            <div class="item-price ">$39.00</div>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus">-</button>
+                                <span class="quantity">3</span>
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="cart-itm" data-id="3">
+                        <div class="itm-image">
+                            <img src="/Image/interior/coffe.jpg" alt="Water boiler">
+                        </div>
+                        <div class="itm-details">
+                            <h3 class="desktop-only">T-shirts with multiple colors, for men and lady</h3>
+                            <h3 class="mobile-only">Water boiler black for kitchen, 1200 Watt</h3>
+                            <div class="item-specs">
+                                <span>Size: medium, Color: blue, Material: Plastic</span>
+                                <span class="seller">Seller: Artel Market</span>
+                            </div>
+                            <div class="item-actions desktop-only">
+                                <button class="remove-btn">Remove</button>
+                                <button class="save-later-btn">Save for later</button>
+                            </div>
+                        </div>
+                        <div class="item-controls">
+                            <div class="item-price ">$78.99</div>
+
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Actions -->
+                <div class="cart-actions">
+                    <button class="back-to-shop">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to shop
+                    </button>
+                    <button class="remove-all">Remove all</button>
+                </div>
+
+                <!-- Mobile Summary -->
+                <div class="mobile-summary mobile-only">
+                    <div class="summary-row">
+                        <span>Items (3):</span>
+                        <span>$32.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span>$10.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax:</span>
+                        <span>$7.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span>$220.00</span>
+                    </div>
+                    <button class="checkout-btn mobile">Checkout (3 items)</button>
+                </div>
+            </div>
+
+            <!-- Desktop Sidebar -->
+            <div class="sidebar desktop-only">
+                <div class="coupon-section">
+                    <h3>Have a coupon?</h3>
+                    <div class="coupon-input">
+                        <input type="text" placeholder="Add coupon">
+                        <button class="apply-btn">Apply</button>
+                    </div>
+                </div>
+
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>$1403.97</span>
+                    </div>
+                    <div class="summary-row discount">
+                        <span>Discount:</span>
+                        <span>- $60.00</span>
+                    </div>
+                    <div class="summary-row tax">
+                        <span>Tax:</span>
+                        <span>+ $14.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span>$1357.97</span>
+                    </div>
+                    <button class="checkout-btn desktop">Checkout</button>
+                    <div class="payment-methods">
+                        <img src="/placeholder.svg?height=20&width=30" alt="Visa">
+                        <img src="/placeholder.svg?height=20&width=30" alt="Mastercard">
+                        <img src="/placeholder.svg?height=20&width=30" alt="PayPal">
+                        <img src="/placeholder.svg?height=20&width=30" alt="Apple Pay">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features desktop-only">
+            <div class="feature">
+                <i class="fas fa-lock"></i>
+                <div>
+                    <h4>Secure payment</h4>
+                    <p>Have you ever finally just</p>
+                </div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-headset"></i>
+                <div>
+                    <h4>Customer support</h4>
+                    <p>Have you ever finally just</p>
+                </div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-truck"></i>
+                <div>
+                    <h4>Free delivery</h4>
+                    <p>Have you ever finally just</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Saved for Later -->
+        <div class="saved-section">
+            <h2>Saved for later</h2>
+            <div class="saved-items">
+                <div class="saved-item">
+                    <div class="saved-image">
+                        <img src="/placeholder.svg?height=120&width=120" alt="Tablet">
+                    </div>
+                    <div class="saved-details">
+                        <div class="saved-price">$99.50</div>
+                        <h4 class="desktop-only">GoPro HERO6 4K Action Camera - Black</h4>
+                        <h4 class="mobile-only">Regular Fit Resort Shirt</h4>
+                        <div class="mobile-only saved-price-mobile">$57.70</div>
+                        <div class="saved-actions">
+                            <button class="move-to-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                Move to cart
+                            </button>
+                            <button class="remove-saved mobile-only">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="saved-item desktop-only">
+                    <div class="saved-image">
+                        <img src="/placeholder.svg?height=120&width=120" alt="Phone">
+                    </div>
+                    <div class="saved-details">
+                        <div class="saved-price">$99.50</div>
+                        <h4>GoPro HERO6 4K Action Camera - Black</h4>
+                        <div class="saved-actions">
+                            <button class="move-to-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                Move to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="saved-item">
+                    <div class="saved-image">
+                        <img src="/placeholder.svg?height=120&width=120" alt="Watch">
+                    </div>
+                    <div class="saved-details">
+                        <div class="saved-price desktop-only">$99.50</div>
+                        <h4 class="desktop-only">GoPro HERO6 4K Action Camera - Black</h4>
+                        <h4 class="mobile-only">Regular Fit Resort Shirt</h4>
+                        <div class="mobile-only saved-price-mobile">$57.70</div>
+                        <div class="saved-actions">
+                            <button class="move-to-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                Move to cart
+                            </button>
+                            <button class="remove-saved mobile-only">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="saved-item desktop-only">
+                    <div class="saved-image">
+                        <img src="/placeholder.svg?height=120&width=120" alt="Laptop">
+                    </div>
+                    <div class="saved-details">
+                        <div class="saved-price">$99.50</div>
+                        <h4>GoPro HERO6 4K Action Camera - Black</h4>
+                        <div class="saved-actions">
+                            <button class="move-to-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                Move to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="saved-item mobile-only">
+                    <div class="saved-image">
+                        <img src="/placeholder.svg?height=120&width=120" alt="Phone">
+                    </div>
+                    <div class="saved-details">
+                        <h4>Regular Fit Resort Shirt</h4>
+                        <div class="saved-price-mobile">$57.70</div>
+                        <div class="saved-actions">
+                            <button class="move-to-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                Move to cart
+                            </button>
+                            <button class="remove-saved">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Promotional Banner -->
+        <div class="promo-banner desktop-only">
+            <div class="promo-content">
+                <h3>Super discount on more than 100 USD</h3>
+                <p>Have you ever finally just write dummy info</p>
+            </div>
+            <button class="shop-now-btn">Shop now</button>
+        </div>
+    </main>
+
+
+    <!-- Footer-->
+    <fake-footer></fake-footer>
+
+    <script src="./script.js"></script>
+
+
+
+</body>
+
+</html>
