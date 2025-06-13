@@ -146,16 +146,21 @@ button {
 .ecom-view-options {
   display: flex;
   gap: 10px;
+    border: 1px solid #e0e0e0;
+  border-radius: 5px;
 }
 
 .ecom-view-options i {
-  font-size: 18px;
-  color: #999;
+  font-size: 16px;
+   padding: 6px 14px; 
+
+    color: #999;
   cursor: pointer;
 }
 
 .ecom-view-options i.active {
   color: #333;
+  background-color: #e0e0e0;
 }
 
 /* Applied filters */
