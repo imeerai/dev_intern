@@ -1,0 +1,120 @@
+/* Hover effects for buttons and interactive elements */
+
+/* Back button hover effect */
+.back-btn:hover {
+    color: #2196f3;
+    transform: translateX(-2px);
+    transition: all 0.2s ease;
+  }
+  
+  /* Quantity control buttons hover effects */
+  .qty-btn:hover {
+    background-color: #f0f0f0;
+    color: #333333;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+  }
+  
+  /* Remove and Save for later buttons hover effects */
+  .remove-btn:hover,
+  .save-later-btn:hover {
+    color: #333333;
+    text-decoration: underline;
+    transition: all 0.2s ease;
+  }
+  
+  /* Cart item hover effect */
+  .cart-itm:hover {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Checkout button hover effect */
+  .checkout-btn:hover {
+    background: #26c066;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  /* Remove all button hover effect */
+  .remove-all:hover {
+    background-color: #4285f4;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+  
+  /* Back to shop button hover effect */
+  .back-to-shop:hover {
+    background: #3b77db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  /* Move to cart button hover effect */
+  .move-to-cart:hover {
+    background-color: #4285f4;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  /* Remove saved button hover effect */
+  .remove-saved:hover {
+    background-color: #ff4757;
+    color: white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Shop now button hover effect */
+  .shop-now-btn:hover {
+    background: #ff8000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  /* Mobile ellipsis menu hover effect */
+  .pp:hover {
+    color: #2196f3;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+  }
+  
+  /* Coupon apply button hover effect */
+  .search-tn:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Saved item hover effect */
+  .saved-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+  
+  /* Feature section hover effect */
+  .feature:hover i {
+    background: #c8d1db;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+  }
+  
+  /* Dropdown menu item hover effect */
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Animation classes for cart item removal */
+  .cart-itm.removing {
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  

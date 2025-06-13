@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <link rel="stylesheet" href="view.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/Image/logo.png" />
+    <script src="/resuse.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Mobile View -->
+    <div class="ecom-mobile-view">
+        <!-- Header -->
+        <header class="ecom-mobile-header">
+            <div class="ecom-header-left">
+                <a href="index.html" class="ecom-back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <h1>Mobile accessory</h1>
+            </div>
+            <div class="ecom-header-right">
+                <a href="#" class="ecom-cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" class="ecom-user-icon"><i class="fas fa-user"></i></a>
+            </div>
+        </header>
+
+        <!-- Search Bar -->
+        <fake-search></fake-search>
+
+        
+
+        <!-- Categories -->
+        <div class="ecom-categories">
+            <button class="ecom-category-pill">Tablets</button>
+            <button class="ecom-category-pill">Phones</button>
+            <button class="ecom-category-pill">Ipads</button>
+            <button class="ecom-category-pill">Watches</button>
+            <button class="ecom-category-pill">Laptops</button>
+        </div>
+
+        <!-- Filter and Sort -->
+        <div class="ecom-filter-sort">
+            <div class="ecom-sort-dropdown">
+                <span>Sort: Newest</span>
+                <i class="fas fa-sort"></i>
+            </div>
+            <div class="ecom-filter-button">
+                <span>Filter (3)</span>
+                <i class="fas fa-filter"></i>
+            </div>
+            <div class="ecom-view-options">
+                <i class="fas fa-th-large ecom-view-grid active"></i>
+                <i class="fas fa-list ecom-view-list"></i>
+            </div>
+        </div>
+
+        <!-- Applied Filters -->
+        <div class="ecom-applied-filters">
+            <div class="ecom-filter-tag">
+                Huawei <i class="fas fa-times"></i>
+            </div>
+            <div class="ecom-filter-tag">
+                Apple <i class="fas fa-times"></i>
+            </div>
+            <div class="ecom-filter-tag">
+                64GB <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+        <!-- Products List -->
+        <div class="ecom-products-container ecom-grid-view">
+            <!-- Product 1 -->
+            <div class="ecom-product-item">
+                <div class="ecom-product-image">
+                    <img src="./Image/tech/iphone.jpg" alt="Product">
+                    <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="ecom-product-info">
+                    <h3 class="ecom-product-title">iPhone 12 Pro Max</h3>
+                    <div class="ecom-product-price">
+                        <span class="ecom-current-price">$999.00</span>
+                    </div>
+                    <div class="ecom-product-rating">
+                        <div class="ecom-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <span class="ecom-rating-value">4.5</span>
+                        <span class="ecom-order-count">154 orders</span>
+                    </div>
+                    <div class="ecom-shipping-info">Free Shipping</div>
+                    <div class="ecom-product-description">
+                        A14 Bionic chip, Pro camera system, LiDAR Scanner, 6.7" Super Retina XDR display with ProMotion
+                        technology
+                    </div>
+                    <div class="ecom-view-details">
+                        <a href="#">View details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="ecom-product-item">
+                <div class="ecom-product-image">
+                    <img src="Image/tech/camera.jpg" alt="Product">
+                    <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="ecom-product-info">
+                    <h3 class="ecom-product-title">Canon EOS R5</h3>
+                    <div class="ecom-product-price">
+                        <span class="ecom-current-price">$3,899.00</span>
+                    </div>
+                    <div class="ecom-product-rating">
+                        <div class="ecom-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ecom-rating-value">5.0</span>
+                        <span class="ecom-order-count">89 orders</span>
+                    </div>
+                    <div class="ecom-shipping-info">Free Shipping</div>
+                    <div class="ecom-product-description">
+                        45MP full-frame CMOS sensor, DIGIC X processor, 8K video recording, In-body image stabilization
+                    </div>
+                    <div class="ecom-view-details">
+                        <a href="#">View details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="ecom-product-item">
+                <div class="ecom-product-image">
+                    <img src="./Image/tech/watch.jpg" alt="Product">
+                    <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="ecom-product-info">
+                    <h3 class="ecom-product-title">Apple Watch Series 7</h3>
+                    <div class="ecom-product-price">
+                        <span class="ecom-current-price">$399.00</span>
+                    </div>
+                    <div class="ecom-product-rating">
+                        <div class="ecom-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <span class="ecom-rating-value">4.7</span>
+                        <span class="ecom-order-count">203 orders</span>
+                    </div>
+                    <div class="ecom-shipping-info">Free Shipping</div>
+                    <div class="ecom-product-description">
+                        Always-On Retina display, ECG app, Blood Oxygen app, Water resistant 50 meters
+                    </div>
+                    <div class="ecom-view-details">
+                        <a href="#">View details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="ecom-product-item">
+                <div class="ecom-product-image">
+                    <img src="./Image/tech/lapi.jpg" alt="Product">
+                    <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="ecom-product-info">
+                    <h3 class="ecom-product-title">MacBook Pro 16"</h3>
+                    <div class="ecom-product-price">
+                        <span class="ecom-current-price">$2,399.00</span>
+                    </div>
+                    <div class="ecom-product-rating">
+                        <div class="ecom-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="ecom-rating-value">4.8</span>
+                        <span class="ecom-order-count">176 orders</span>
+                    </div>
+                    <div class="ecom-shipping-info">Free Shipping</div>
+                    <div class="ecom-product-description">
+                        Apple M1 Pro chip, 16-core Neural Engine, 16" Liquid Retina XDR display, Up to 21 hours battery
+                        life
+                    </div>
+                    <div class="ecom-view-details">
+                        <a href="#">View details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="ecom-product-item">
+                <div class="ecom-product-image">
+                    <img src="./Image/tech/smart.jpg" alt="Product">
+                    <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="ecom-product-info">
+                    <h3 class="ecom-product-title">Samsung Galaxy S21</h3>
+                    <div class="ecom-product-price">
+                        <span class="ecom-current-price">$799.00</span>
+                    </div>
+                    <div class="ecom-product-rating">
+                        <div class="ecom-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <span class="ecom-rating-value">4.6</span>
+                        <span class="ecom-order-count">142 orders</span>
+                    </div>
+                    <div class="ecom-shipping-info">Free Shipping</div>
+                    <div class="ecom-product-description">
+                        5G ready, 64MP camera, 8K video, 120Hz display, All-day battery
+                    </div>
+                    <div class="ecom-view-details">
+                        <a href="#">View details</a>
+                    </div>
+                </div>
+            </div> <!-- Product 6 -->
+            <div class="ecom-product-item">
+                <div class="ecom-product-image">
+                    <img src="./Image/tech/smart.jpg" alt="Product">
+                    <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="ecom-product-info">
+                    <h3 class="ecom-product-title">Samsung Galaxy S21</h3>
+                    <div class="ecom-product-price">
+                        <span class="ecom-current-price">$799.00</span>
+                    </div>
+                    <div class="ecom-product-rating">
+                        <div class="ecom-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <span class="ecom-rating-value">4.6</span>
+                        <span class="ecom-order-count">142 orders</span>
+                    </div>
+                    <div class="ecom-shipping-info">Free Shipping</div>
+                    <div class="ecom-product-description">
+                        5G ready, 64MP camera, 8K video, 120Hz display, All-day battery
+                    </div>
+                    <div class="ecom-view-details">
+                        <a href="#">View details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- You May Also Like -->
+        <div class="ecom-you-may-also-like">
+            <h2>You may also like</h2>
+            <div class="ecom-related-products">
+                <div class="ecom-related-product">
+                    <img src="./Image/tech/kettle.jpg" alt="Related product">
+                    <div class="ecom-related-product-info">
+                        <span class="ecom-related-price">$129.99</span>
+                        <p class="ecom-related-title">Wireless Headphones</p>
+                    </div>
+                </div>
+                <div class="ecom-related-product">
+                    <img src="Image/tech/headset.jpg" alt="Related product">
+                    <div class="ecom-related-product-info">
+                        <span class="ecom-related-price">$49.99</span>
+                        <p class="ecom-related-title">Smart Watch Band</p>
+                    </div>
+                </div>
+                <div class="ecom-related-product">
+                    <img src="Image/tech/tablet.jpg" alt="Related product">
+                    <div class="ecom-related-product-info">
+                        <span class="ecom-related-price">$19.99</span>
+                        <p class="ecom-related-title">Phone Case</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop View -->
+
+    <fake-header></fake-header>
+    <fake-nav></fake-nav>
+    <div class="ecom-desktop-view">
+
+
+
+        <!-- Breadcrumb -->
+        <div class="ecom-breadcrumb">
+            <a href="#">Home</a> &gt;
+            <a href="#">Electronics</a> &gt;
+            <a href="#">Accessories</a> &gt;
+            <a href="#">Mobile accessory</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="ecom-main-content">
+            <!-- Sidebar -->
+            <aside class="ecom-sidebar">
+                <div class="ecom-sidebar-section">
+                    <div class="ecom-section-header">
+                        <h3>Category</h3>
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+                    <ul class="ecom-category-list">
+                        <li><a href="#" class="active">Mobile accessory</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Smartphones</a></li>
+                        <li><a href="#">Modern tech</a></li>
+                        <li><a href="#" class="ecom-see-all">See all</a></li>
+                    </ul>
+                </div>
+
+                <div class="ecom-sidebar-section">
+                    <div class="ecom-section-header">
+                        <h3>Brands</h3>
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+                    <ul class="ecom-checkbox-list">
+                        <li>
+                            <label>
+                                <input type="checkbox" checked> Samsung
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" checked> Apple
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Huawei
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" checked> Pocco
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Lenovo
+                            </label>
+                        </li>
+                        <li><a href="#" class="ecom-see-all">See all</a></li>
+                    </ul>
+                </div>
+
+                <div class="ecom-sidebar-section">
+                    <div class="ecom-section-header">
+                        <h3>Features</h3>
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+                    <ul class="ecom-checkbox-list">
+                        <li>
+                            <label>
+                                <input type="checkbox" checked> Metallic
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Plastic cover
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> 8GB Ram
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Super power
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Large Memory
+                            </label>
+                        </li>
+                        <li><a href="#" class="ecom-see-all">See all</a></li>
+                    </ul>
+                </div>
+
+                <div class="ecom-sidebar-section">
+                    <div class="ecom-section-header">
+                        <h3>Price range</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="ecom-price-range">
+                        <div class="ecom-range-slider">
+                            <div class="ecom-range-track">
+                                <div class="ecom-range-fill"></div>
+                                <div class="ecom-range-handle ecom-left" id="leftHandle"></div>
+                                <div class="ecom-range-handle ecom-right" id="rightHandle"></div>
+                            </div>
+                        </div>
+                        <div class="ecom-range-labels">
+                            <span>Min</span>
+                            <span>Max</span>
+                        </div>
+                        <div class="ecom-range-inputs">
+                            <input type="text" id="minPrice" value="0">
+                            <input type="text" id="maxPrice" value="999999">
+                        </div>
+                        <button class="ecom-apply-button">Apply</button>
+                    </div>
+                </div>
+
+                <div class="ecom-sidebar-section">
+                    <div class="ecom-section-header">
+                        <h3>Condition</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="ecom-condition-options">
+                        <label class="ecom-radio-label">
+                            <input type="radio" name="condition" checked>
+                            <span class="ecom-radio-custom"></span>
+                            Any
+                        </label>
+                        <label class="ecom-radio-label">
+                            <input type="radio" name="condition">
+                            <span class="ecom-radio-custom"></span>
+                            Refurbished
+                        </label>
+                        <label class="ecom-radio-label">
+                            <input type="radio" name="condition">
+                            <span class="ecom-radio-custom"></span>
+                            Brand new
+                        </label>
+                        <label class="ecom-radio-label">
+                            <input type="radio" name="condition">
+                            <span class="ecom-radio-custom"></span>
+                            Old items
+                        </label>
+                    </div>
+                </div>
+
+                <div class="ecom-sidebar-section">
+                    <div class="ecom-section-header">
+                        <h3>Ratings</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="ecom-ratings-options">
+                        <label class="ecom-checkbox-label">
+                            <input type="checkbox">
+                            <span class="ecom-checkbox-custom"></span>
+                            <div class="ecom-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </label>
+                        <label class="ecom-checkbox-label">
+                            <input type="checkbox">
+                            <span class="ecom-checkbox-custom"></span>
+                            <div class="ecom-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </label>
+                        <label class="ecom-checkbox-label">
+                            <input type="checkbox">
+                            <span class="ecom-checkbox-custom"></span>
+                            <div class="ecom-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </label>
+                        <label class="ecom-checkbox-label">
+                            <input type="checkbox">
+                            <span class="ecom-checkbox-custom"></span>
+                            <div class="ecom-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Listing -->
+            <div class="ecom-product-listing">
+                <div class="ecom-listing-header">
+                    <div class="ecom-listing-info-box">
+                        <div class="ecom-item-count">
+                            <span>12,911 items in</span>
+                            <strong>Mobile accessory</strong>
+                        </div>
+                        <div style="display: flex; gap: 16px; align-items: center;"><div class="ecom-listing-options">
+                            <label class="ecom-verified-only">
+                                <input type="checkbox" checked>
+                                Verified only
+                            </label>
+                            <div class="ecom-dropdown">
+                                <button>Featured <i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="ecom-view-options">
+                            <i class="fas fa-th-large ecom-view-grid active"></i>
+                            <i class="fas fa-list ecom-view-list"></i>
+                        </div></div>
+                    </div>
+                    
+                </div>
+
+                <!-- Desktop Products Container -->
+                <div class="ecom-products-container ecom-grid-view">
+                    <!-- Product 1 -->
+                    <div class="ecom-product-item">
+                        <div class="ecom-product-image">
+                            <img src="./Image/tech/iphone.jpg" alt="Product">
+                            <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="ecom-product-info">
+                            <h3 class="ecom-product-title">GoPro HERO10 Black</h3>
+                            <div class="ecom-product-price">
+                                <span class="ecom-current-price">$399.99</span>
+                                <span class="ecom-original-price">$499.99</span>
+                            </div>
+                            <div class="ecom-product-rating">
+                                <div class="ecom-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="ecom-rating-value">4.5</span>
+                                <span class="ecom-order-count">154 orders</span>
+                            </div>
+                            <div class="ecom-shipping-info">Free Shipping</div>
+                            <div class="ecom-product-description">
+                                5.3K video with 23MP photos, HyperSmooth 4.0 video stabilization, Waterproof to 33ft
+                            </div>
+                            <div class="ecom-view-details">
+                                <a href="#">View details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="ecom-product-item">
+                        <div class="ecom-product-image">
+                            <img src="./Image/tech/camera.jpg" alt="Product">
+                            <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="ecom-product-info">
+                            <h3 class="ecom-product-title">Bose QuietComfort Earbuds</h3>
+                            <div class="ecom-product-price">
+                                <span class="ecom-current-price">$279.00</span>
+                                <span class="ecom-original-price">$329.00</span>
+                            </div>
+                            <div class="ecom-product-rating">
+                                <div class="ecom-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="ecom-rating-value">4.3</span>
+                                <span class="ecom-order-count">98 orders</span>
+                            </div>
+                            <div class="ecom-shipping-info">Free Shipping</div>
+                            <div class="ecom-product-description">
+                                Noise cancelling earbuds, High-fidelity audio, Sweat and weather resistant, Up to 6
+                                hours battery life
+                            </div>
+                            <div class="ecom-view-details">
+                                <a href="#">View details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="ecom-product-item">
+                        <div class="ecom-product-image">
+                            <img src="Image/tech/watch.jpg" alt="Product">
+                            <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="ecom-product-info">
+                            <h3 class="ecom-product-title">iPhone 13 Pro</h3>
+                            <div class="ecom-product-price">
+                                <span class="ecom-current-price">$999.00</span>
+                                <span class="ecom-original-price">$1099.00</span>
+                            </div>
+                            <div class="ecom-product-rating">
+                                <div class="ecom-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="ecom-rating-value">5.0</span>
+                                <span class="ecom-order-count">312 orders</span>
+                            </div>
+                            <div class="ecom-shipping-info">Free Shipping</div>
+                            <div class="ecom-product-description">
+                                A15 Bionic chip, Pro camera system, Super Retina XDR display with ProMotion, Cinematic
+                                mode
+                            </div>
+                            <div class="ecom-view-details">
+                                <a href="#">View details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="ecom-product-item">
+                        <div class="ecom-product-image">
+                            <img src="./Image/tech/lapi.jpg" alt="Product">
+                            <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="ecom-product-info">
+                            <h3 class="ecom-product-title">Electric Kettle</h3>
+                            <div class="ecom-product-price">
+                                <span class="ecom-current-price">$39.99</span>
+                                <span class="ecom-original-price">$59.99</span>
+                            </div>
+                            <div class="ecom-product-rating">
+                                <div class="ecom-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="ecom-rating-value">4.2</span>
+                                <span class="ecom-order-count">87 orders</span>
+                            </div>
+                            <div class="ecom-shipping-info">Free Shipping</div>
+                            <div class="ecom-product-description">
+                                1.7L capacity, Stainless steel, 1500W fast boiling, Auto shut-off, Boil-dry protection
+                            </div>
+                            <div class="ecom-view-details">
+                                <a href="#">View details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="ecom-product-item">
+                        <div class="ecom-product-image">
+                            <img src="Image/tech/phone.jpg" alt="Product">
+                            <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="ecom-product-info">
+                            <h3 class="ecom-product-title">Dell XPS 15</h3>
+                            <div class="ecom-product-price">
+                                <span class="ecom-current-price">$1,799.00</span>
+                                <span class="ecom-original-price">$1,999.00</span>
+                            </div>
+                            <div class="ecom-product-rating">
+                                <div class="ecom-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="ecom-rating-value">4.7</span>
+                                <span class="ecom-order-count">124 orders</span>
+                            </div>
+                            <div class="ecom-shipping-info">Free Shipping</div>
+                            <div class="ecom-product-description">
+                                11th Gen Intel Core i7, 16GB RAM, 512GB SSD, NVIDIA GeForce RTX 3050 Ti, 15.6" FHD+
+                                display
+                            </div>
+                            <div class="ecom-view-details">
+                                <a href="#">View details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="ecom-product-item">
+                        <div class="ecom-product-image">
+                            <img src="Image/tech/headset.jpg" alt="Product">
+                            <button class="ecom-favorite-button"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="ecom-product-info">
+                            <h3 class="ecom-product-title">Samsung Galaxy Watch 4</h3>
+                            <div class="ecom-product-price">
+                                <span class="ecom-current-price">$249.99</span>
+                                <span class="ecom-original-price">$299.99</span>
+                            </div>
+                            <div class="ecom-product-rating">
+                                <div class="ecom-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="ecom-rating-value">4.4</span>
+                                <span class="ecom-order-count">156 orders</span>
+                            </div>
+                            <div class="ecom-shipping-info">Free Shipping</div>
+                            <div class="ecom-product-description">
+                                Body composition analysis, Advanced sleep coaching, Auto workout tracking, ECG
+                                monitoring
+                            </div>
+                            <div class="ecom-view-details">
+                                <a href="#">View details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="ecom-pagination">
+                    <button class="ecom-pagination-arrow ecom-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="ecom-pagination-number active">1</button>
+                    <button class="ecom-pagination-number">2</button>
+                    <button class="ecom-pagination-number">3</button>
+                    <button class="ecom-pagination-arrow ecom-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Newsletter -->
+    <fake-sub></fake-sub>
+
+
+
+    <!-- Footer-->
+    <fake-footer></fake-footer>
+
+    <script src="view.js"></script>
+</body>
+
+</html>
