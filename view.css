@@ -946,11 +946,13 @@ button {
 
 /* Pagination */
 .ecom-pagination {
-  display: flex;
+  display: flex
+;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
   gap: 5px;
+  margin-bottom: 16px;
 }
 
 .ecom-pagination-arrow,
