@@ -1,33 +1,179 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Setup view toggle between grid and list
+  initializeNavigation()
   setupViewToggle()
-
-  // Back button functionality
   setupBackButton()
-
-  // Filter tags click handler
   setupFilterTags()
-
-  // Favorite button functionality
   setupFavoriteButtons()
-
-  // Range slider functionality
   setupRangeSlider()
-
-  // Setup sidebar section toggles
   setupSidebarToggles()
-
-  // Setup mobile filter functionality
   setupMobileFilter()
-
-  // Setup sort dropdown functionality
   setupSortDropdown()
-
-  // Setup featured dropdown functionality
   setupFeaturedDropdown()
+  setupProductInteractions()
+  setupPagination()
 })
 
-// Setup view toggle between grid and list
+function initializeNavigation() {
+  const logos = document.querySelectorAll(".brand-logo, .footer-brand")
+  logos.forEach((logo) => {
+    logo.addEventListener("click", () => {
+      window.location.href = "index.html"
+    })
+    logo.style.cursor = "pointer"
+  })
+
+  const searchBtn = document.querySelector(".search-btn, .ecom-search-button")
+  const searchInput = document.querySelector(".search-input, .ecom-search-container input")
+
+  if (searchBtn && searchInput) {
+    searchBtn.addEventListener("click", () => {
+      const searchTerm = searchInput.value.trim()
+      if (searchTerm) {
+        updateSearchResults(searchTerm)
+      }
+    })
+
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        searchBtn.click()
+      }
+    })
+  }
+
+  const cartIcons = document.querySelectorAll(".header-icons .i, .ecom-cart-icon")
+  cartIcons.forEach((icon) => {
+    const iconElement = icon.querySelector("i") || icon
+    if (
+      iconElement &&
+      (iconElement.classList.contains("fa-shopping-cart") || iconElement.classList.contains("fa-shopping-bag"))
+    ) {
+      icon.addEventListener("click", (e) => {
+        e.preventDefault()
+        window.location.href = "cart.html"
+      })
+      icon.style.cursor = "pointer"
+    }
+  })
+
+  const categoryLinks = document.querySelectorAll(".ecom-category-list a, .ecom-category-pill")
+  categoryLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault()
+      const categoryName = link.textContent.trim()
+      if (categoryName !== "See all") {
+        updateCategoryResults(categoryName)
+      }
+    })
+  })
+
+  const breadcrumbLinks = document.querySelectorAll(".ecom-breadcrumb a")
+  breadcrumbLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault()
+      const linkText = link.textContent.toLowerCase()
+      if (linkText === "home") {
+        window.location.href = "index.html"
+      } else {
+        updateCategoryResults(linkText)
+      }
+    })
+  })
+
+  const subscribeBtn = document.querySelector(".subscribe-btn, .ecom-subscribe-button")
+  const newsletterInput = document.querySelector(".newsletter-input, .ecom-email-input input")
+
+  if (subscribeBtn && newsletterInput) {
+    subscribeBtn.addEventListener("click", () => {
+      const email = newsletterInput.value.trim()
+      if (email && email.includes("@")) {
+        alert(`Thank you for subscribing with: ${email}`)
+        newsletterInput.value = ""
+      } else {
+        alert("Please enter a valid email address")
+      }
+    })
+
+    newsletterInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        subscribeBtn.click()
+      }
+    })
+  }
+}
+
+function setupProductInteractions() {
+  const productItems = document.querySelectorAll(".ecom-product-item")
+  productItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      if (!e.target.closest(".ecom-favorite-button") && !e.target.closest(".ecom-view-details")) {
+        window.location.href = "details.html"
+      }
+    })
+    item.style.cursor = "pointer"
+  })
+
+  const viewDetailsLinks = document.querySelectorAll(".ecom-view-details a")
+  viewDetailsLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault()
+      window.location.href = "details.html"
+    })
+  })
+
+  const relatedProducts = document.querySelectorAll(".ecom-related-product")
+  relatedProducts.forEach((product) => {
+    product.addEventListener("click", () => {
+      window.location.href = "details.html"
+    })
+    product.style.cursor = "pointer"
+  })
+}
+
+function setupPagination() {
+  const paginationButtons = document.querySelectorAll(".ecom-pagination-number, .ecom-pagination-arrow")
+  paginationButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".ecom-pagination-number").forEach((btn) => {
+        btn.classList.remove("active")
+      })
+      if (button.classList.contains("ecom-pagination-number")) {
+        button.classList.add("active")
+      } 
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    })
+  })
+}
+function updateSearchResults(searchTerm) {
+  const mobileTitle = document.querySelector(".ecom-mobile-header h1")
+  if (mobileTitle) {
+    mobileTitle.textContent = `Search: ${searchTerm}`
+  }
+  const breadcrumb = document.querySelector(".ecom-breadcrumb")
+  if (breadcrumb) {
+    breadcrumb.innerHTML = `<a href="#">Home</a> &gt; <a href="#">Search</a> &gt; ${searchTerm}`
+  }
+  const itemCount = document.querySelector(".ecom-item-count")
+  if (itemCount) {
+    itemCount.innerHTML = `<span>Search results for</span> <strong>"${searchTerm}"</strong>`
+  }
+  console.log(`Searching for: ${searchTerm}`)
+}
+
+function updateCategoryResults(categoryName) {
+  const mobileTitle = document.querySelector(".ecom-mobile-header h1")
+  if (mobileTitle) {
+    mobileTitle.textContent = categoryName
+  }
+  const breadcrumb = document.querySelector(".ecom-breadcrumb")
+  if (breadcrumb) {
+    breadcrumb.innerHTML = `<a href="#">Home</a> &gt; <a href="#">Categories</a> &gt; ${categoryName}`
+  }
+  const itemCount = document.querySelector(".ecom-item-count")
+  if (itemCount) {
+    itemCount.innerHTML = `<span>Items in</span> <strong>${categoryName}</strong>`
+  }
+  console.log(`Filtering by category: ${categoryName}`)
+}
 function setupViewToggle() {
   const gridButtons = document.querySelectorAll(".ecom-view-grid")
   const listButtons = document.querySelectorAll(".ecom-view-list")
@@ -35,7 +181,6 @@ function setupViewToggle() {
 
   gridButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      // Update active state on buttons
       document.querySelectorAll(".ecom-view-grid, .ecom-view-list").forEach((btn) => {
         btn.classList.remove("active")
       })
@@ -43,8 +188,6 @@ function setupViewToggle() {
       document.querySelectorAll(".ecom-view-grid").forEach((btn) => {
         btn.classList.add("active")
       })
-
-      // Change view to grid
       productsContainers.forEach((container) => {
         container.classList.remove("ecom-list-view")
         container.classList.add("ecom-grid-view")
@@ -54,7 +197,6 @@ function setupViewToggle() {
 
   listButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      // Update active state on buttons
       document.querySelectorAll(".ecom-view-grid, .ecom-view-list").forEach((btn) => {
         btn.classList.remove("active")
       })
@@ -62,8 +204,6 @@ function setupViewToggle() {
       document.querySelectorAll(".ecom-view-list").forEach((btn) => {
         btn.classList.add("active")
       })
-
-      // Change view to list
       productsContainers.forEach((container) => {
         container.classList.remove("ecom-grid-view")
         container.classList.add("ecom-list-view")
@@ -71,8 +211,6 @@ function setupViewToggle() {
     })
   })
 }
-
-// Setup back button functionality
 function setupBackButton() {
   const backButtons = document.querySelectorAll(".ecom-back-button")
   backButtons.forEach((button) => {
@@ -83,7 +221,6 @@ function setupBackButton() {
   })
 }
 
-// Setup filter tags
 function setupFilterTags() {
   const filterTags = document.querySelectorAll(".ecom-filter-tag")
   filterTags.forEach((tag) => {
@@ -101,26 +238,25 @@ function setupFilterTags() {
     })
   })
 }
-
-// Setup favorite buttons
 function setupFavoriteButtons() {
   const favoriteButtons = document.querySelectorAll(".ecom-favorite-button")
   favoriteButtons.forEach((button) => {
     button.addEventListener("click", function (e) {
       e.preventDefault()
+      e.stopPropagation()
       const icon = this.querySelector("i")
       if (icon.classList.contains("far")) {
         icon.classList.remove("far")
         icon.classList.add("fas")
+        icon.style.color = "#ff4757"
       } else {
         icon.classList.remove("fas")
         icon.classList.add("far")
+        icon.style.color = ""
       }
     })
   })
 }
-
-// Setup range slider functionality
 function setupRangeSlider() {
   const leftHandle = document.getElementById("leftHandle")
   const rightHandle = document.getElementById("rightHandle")
@@ -130,28 +266,21 @@ function setupRangeSlider() {
   const rangeTrack = document.querySelector(".ecom-range-track")
 
   if (!leftHandle || !rightHandle || !rangeFill || !minPriceInput || !maxPriceInput || !rangeTrack) {
-    return // Exit if elements don't exist
+    return 
   }
 
   let isDraggingLeft = false
   let isDraggingRight = false
 
-  // Set initial positions
-  updateRangeUI(20, 80) // Default positions at 20% and 80%
-
-  // Handle mouse events for left handle
+  updateRangeUI(20, 80) 
   leftHandle.addEventListener("mousedown", (e) => {
     e.preventDefault()
     isDraggingLeft = true
   })
-
-  // Handle mouse events for right handle
-  rightHandle.addEventListener("mousedown", (e) => {
+ rightHandle.addEventListener("mousedown", (e) => {
     e.preventDefault()
     isDraggingRight = true
   })
-
-  // Handle mouse move and up events
   document.addEventListener("mousemove", (e) => {
     if (!isDraggingLeft && !isDraggingRight) return
 
@@ -163,8 +292,6 @@ function setupRangeSlider() {
       if (percentage < rightPos - 5) {
         leftHandle.style.left = `${percentage}%`
         rangeFill.style.left = `${percentage}%`
-
-        // Update min price input
         const minPrice = Math.floor((percentage / 100) * 999999)
         minPriceInput.value = minPrice
       }
@@ -173,8 +300,6 @@ function setupRangeSlider() {
       if (percentage > leftPos + 5) {
         rightHandle.style.left = `${percentage}%`
         rangeFill.style.right = `${100 - percentage}%`
-
-        // Update max price input
         const maxPrice = Math.floor((percentage / 100) * 999999)
         maxPriceInput.value = maxPrice
       }
@@ -185,8 +310,6 @@ function setupRangeSlider() {
     isDraggingLeft = false
     isDraggingRight = false
   })
-
-  // Handle input changes
   minPriceInput.addEventListener("change", () => {
     const minVal = Number.parseInt(minPriceInput.value) || 0
     const maxVal = Number.parseInt(maxPriceInput.value) || 999999
@@ -210,16 +333,12 @@ function setupRangeSlider() {
     const percentage = (maxVal / 999999) * 100
     updateRightPosition(percentage)
   })
-
-  // Apply button functionality
   const applyButton = document.querySelector(".ecom-apply-button")
   if (applyButton) {
     applyButton.addEventListener("click", () => {
       alert(`Price range applied: $${minPriceInput.value} - $${maxPriceInput.value}`)
     })
   }
-
-  // Helper functions
   function updateRangeUI(leftPos, rightPos) {
     leftHandle.style.left = `${leftPos}%`
     rightHandle.style.left = `${rightPos}%`
@@ -246,8 +365,6 @@ function setupRangeSlider() {
     rangeFill.style.right = `${100 - rightPos}%`
   }
 }
-
-// Setup sidebar section toggles
 function setupSidebarToggles() {
   const sectionHeaders = document.querySelectorAll(".ecom-section-header")
 
@@ -263,8 +380,6 @@ function setupSidebarToggles() {
         if (content) {
           const isVisible = content.style.display !== "none"
           content.style.display = isVisible ? "none" : "block"
-
-          // Toggle icon rotation
           header.classList.toggle("collapsed", isVisible)
         }
       })
@@ -272,7 +387,6 @@ function setupSidebarToggles() {
   })
 }
 
-// Setup mobile filter functionality
 function setupMobileFilter() {
   const filterButton = document.querySelector(".ecom-filter-button")
   const filterPanel = document.querySelector(".ecom-mobile-filter-panel")
@@ -295,20 +409,16 @@ function setupMobileFilter() {
   if (applyFiltersButton && filterPanel) {
     applyFiltersButton.addEventListener("click", () => {
       filterPanel.classList.remove("active")
-      // Here you would typically apply the selected filters
       alert("Filters applied!")
     })
   }
 
   if (clearFiltersButton) {
     clearFiltersButton.addEventListener("click", () => {
-      // Clear all checkboxes in the mobile filter panel
       const checkboxes = filterPanel.querySelectorAll('input[type="checkbox"]')
       checkboxes.forEach((checkbox) => {
         checkbox.checked = false
       })
-
-      // Clear price range inputs
       const priceInputs = filterPanel.querySelectorAll(".ecom-mobile-price-range input")
       priceInputs.forEach((input) => {
         if (input.placeholder === "Min") input.value = "0"
@@ -317,8 +427,6 @@ function setupMobileFilter() {
     })
   }
 }
-
-// Setup sort dropdown functionality
 function setupSortDropdown() {
   const sortDropdown = document.querySelector(".ecom-sort-dropdown")
   const sortOptions = document.querySelectorAll(".ecom-sort-option")
@@ -335,8 +443,6 @@ function setupSortDropdown() {
     })
   }
 }
-
-// Setup featured dropdown functionality
 function setupFeaturedDropdown() {
   const featuredDropdown = document.querySelector(".ecom-dropdown")
   const featuredOptions = document.querySelectorAll(".ecom-dropdown-item")

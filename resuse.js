@@ -177,16 +177,9 @@ class fnav extends HTMLElement {
                 </select>
                 <label for="ship">Ship to</label>
                 <select class="flag" id="ship">
-                    <option><img src="./Image/flag/p0.png" alt="pk"></option>
-                    <option><img src="./Image/flag/p1.png" alt=""></option>
-                    <option><img src="./Image/flag/p2.png" alt=""></option>
-                    <option><img src="./Image/flag/p3.png" alt=""></option>
-                    <option><img src="./Image/flag/p4.png" alt=""></option>
-                    <option><img src="./Image/flag/p5.png" alt=""></option>
-                    <option><img src="./Image/flag/p6.png" alt=""></option>
-                    <option><img src="./Image/flag/p7.png" alt=""></option>
-                    <option><img src="./Image/flag/p8.png" alt=""></option>
-                    <option><img src="./Image/flag/p9.png" alt=""></option>
+                    <option>PK</option>
+                    <option>IN</option>
+                    <option>IR</option>
                 </select>
             </div>
         </div>

@@ -1,78 +1,71 @@
-// Enhanced JavaScript with mobile functionality
 document.addEventListener("DOMContentLoaded", () => {
   initializeCountdownTimer()
-  initializeBasicInteractions()
+  initializeNavigation()
   initializeMobileSidebar()
   initializeMobileInteractions()
 })
 
-// Mobile Sidebar Functionality
 function initializeMobileSidebar() {
   const mobileMenuBtn = document.getElementById("mobileMenuBtn")
   const mobileSidebar = document.getElementById("mobileSidebar")
   const mobileSidebarOverlay = document.getElementById("mobileSidebarOverlay")
 
   if (mobileMenuBtn && mobileSidebar && mobileSidebarOverlay) {
-    // Open sidebar
-    mobileMenuBtn.addEventListener("click", () => {
+    mobileMenuBtn.addEventListener("click", (e) => {
+      e.stopPropagation()
       mobileSidebar.classList.add("active")
       mobileSidebarOverlay.classList.add("active")
       document.body.style.overflow = "hidden"
     })
 
-    // Close sidebar when clicking overlay
     mobileSidebarOverlay.addEventListener("click", () => {
-      mobileSidebar.classList.remove("active")
-      mobileSidebarOverlay.classList.remove("active")
-      document.body.style.overflow = ""
+      closeMobileSidebar()
     })
 
-    // Close sidebar when pressing escape key
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && mobileSidebar.classList.contains("active")) {
-        mobileSidebar.classList.remove("active")
-        mobileSidebarOverlay.classList.remove("active")
-        document.body.style.overflow = ""
+        closeMobileSidebar()
       }
     })
   }
+
+  function closeMobileSidebar() {
+    if (mobileSidebar && mobileSidebarOverlay) {
+      mobileSidebar.classList.remove("active")
+      mobileSidebarOverlay.classList.remove("active")
+      document.body.style.overflow = ""
+    }
+  }
 }
 
-// Mobile Category Tabs
 function initializeMobileInteractions() {
   const categoryTabs = document.querySelectorAll(".category-tab")
 
   categoryTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      // Remove active class from all tabs
       categoryTabs.forEach((t) => t.classList.remove("active"))
-      // Add active class to clicked tab
       tab.classList.add("active")
+      window.location.href = `view.html?category=${encodeURIComponent(tab.textContent)}`
     })
   })
 
-  // Mobile search functionality
   const mobileSearchInput = document.querySelector(".mobile-search-input")
   if (mobileSearchInput) {
     mobileSearchInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         const searchTerm = mobileSearchInput.value.trim()
         if (searchTerm) {
-          alert(`Searching for: ${searchTerm}`)
-        } else {
-          alert("Please enter a search term")
+          window.location.href = `view.html?search=${encodeURIComponent(searchTerm)}`
         }
       }
     })
   }
 }
 
-// Fixed Countdown Timer
 function initializeCountdownTimer() {
   const timeBoxes = document.querySelectorAll(".time-box")
 
   if (timeBoxes.length >= 3) {
-    // Set initial time (13 hours, 34 minutes, 56 seconds)
     let totalSeconds = 13 * 3600 + 34 * 60 + 56
 
     function updateTimer() {
@@ -80,7 +73,6 @@ function initializeCountdownTimer() {
       const minutes = Math.floor((totalSeconds % 3600) / 60)
       const seconds = totalSeconds % 60
 
-      // Update the display
       if (timeBoxes[0]) {
         timeBoxes[0].firstChild.textContent = hours.toString().padStart(2, "0")
       }
@@ -91,23 +83,26 @@ function initializeCountdownTimer() {
         timeBoxes[2].firstChild.textContent = seconds.toString().padStart(2, "0")
       }
 
-      // Decrease total seconds
       totalSeconds--
-
-      // Reset if timer reaches zero
       if (totalSeconds < 0) {
-        totalSeconds = 13 * 3600 + 34 * 60 + 56 // Reset to initial time
+        totalSeconds = 13 * 3600 + 34 * 60 + 56
       }
     }
 
-    // Update immediately and then every second
     updateTimer()
     setInterval(updateTimer, 1000)
   }
 }
 
-function initializeBasicInteractions() {
-  // Search functionality
+function initializeNavigation() {
+  const logos = document.querySelectorAll(".brand-logo, .footer-brand")
+  logos.forEach((logo) => {
+    logo.addEventListener("click", () => {
+      window.location.href = "index.html"
+    })
+    logo.style.cursor = "pointer"
+  })
+
   const searchBtn = document.querySelector(".search-btn")
   const searchInput = document.querySelector(".search-input")
 
@@ -115,9 +110,7 @@ function initializeBasicInteractions() {
     searchBtn.addEventListener("click", () => {
       const searchTerm = searchInput.value.trim()
       if (searchTerm) {
-        alert(`Searching for: ${searchTerm}`)
-      } else {
-        alert("Please enter a search term")
+        window.location.href = `view.html?search=${encodeURIComponent(searchTerm)}`
       }
     })
 
@@ -127,8 +120,51 @@ function initializeBasicInteractions() {
       }
     })
   }
+  const cartIcons = document.querySelectorAll(".header-icons .i")
+  cartIcons.forEach((icon) => {
+    const iconElement = icon.querySelector("i")
+    if (
+      iconElement &&
+      (iconElement.classList.contains("fa-shopping-cart") || iconElement.classList.contains("fa-shopping-bag"))
+    ) {
+      icon.addEventListener("click", () => {
+        window.location.href = "cart.html"
+      })
+      icon.style.cursor = "pointer"
+    }
+  })
 
-  // Newsletter subscription
+  const learnMoreBtns = document.querySelectorAll(".learn-more-btn")
+  learnMoreBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      window.location.href = "view.html"
+    })
+  })
+
+  const sourceNowBtns = document.querySelectorAll(".source-btn, .newq")
+  sourceNowBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault()
+      window.location.href = "view.html"
+    })
+  })
+
+  const sidebarItems = document.querySelectorAll(".sidebar-menu li")
+  sidebarItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      window.location.href = `view.html?category=${encodeURIComponent(item.textContent)}`
+    })
+    item.style.cursor = "pointer"
+  })
+
+  const productItems = document.querySelectorAll(".deal-card, .product-item, .recommended-item")
+  productItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      window.location.href = "details.html"
+    })
+    item.style.cursor = "pointer"
+  })
+
   const subscribeBtn = document.querySelector(".subscribe-btn")
   const newsletterInput = document.querySelector(".newsletter-input")
 
@@ -150,71 +186,35 @@ function initializeBasicInteractions() {
     })
   }
 
-  // Send inquiry functionality
-  const sendInquiryBtn = document.querySelector(".send-inquiry")
-  if (sendInquiryBtn) {
-    sendInquiryBtn.addEventListener("click", () => {
-      alert("Inquiry sent successfully!")
+  const backButton = document.querySelector(".back-btn")
+  if (backButton) {
+    backButton.addEventListener("click", () => {
+      window.location.href = "index.html"
     })
   }
 
-  // Learn more button
-  const learnMoreBtn = document.querySelector(".learn-more-btn")
-  if (learnMoreBtn) {
-    learnMoreBtn.addEventListener("click", () => {
-      alert("Redirecting to product details...")
+  const backToShopButton = document.querySelector(".back-to-shop")
+  if (backToShopButton) {
+    backToShopButton.addEventListener("click", () => {
+      window.location.href = "index.html"
     })
   }
 
-  // Join and Login buttons
-  const joinBtn = document.querySelector(".join-btn")
-  const loginBtn = document.querySelector(".login-btn")
-
-  if (joinBtn) {
-    joinBtn.addEventListener("click", () => {
-      alert("Redirecting to registration page...")
+  const shopNowBtn = document.querySelector(".shop-now-btn")
+  if (shopNowBtn) {
+    shopNowBtn.addEventListener("click", () => {
+      window.location.href = "view.html"
     })
   }
-
-  if (loginBtn) {
-    loginBtn.addEventListener("click", () => {
-      alert("Redirecting to login page...")
-    })
-  }
-
-  // Source now buttons
-  const sourceButtons = document.querySelectorAll(".source-btn")
-  sourceButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      alert("Redirecting to suppliers...")
-    })
-  })
-
-  // Product item clicks
-  const productItems = document.querySelectorAll(".product-item, .deal-card, .recommended-item")
-  productItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      alert("Redirecting to product details...")
-    })
-  })
-
-  // Service card clicks
-  const serviceCards = document.querySelectorAll(".service-card")
-  serviceCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      alert("Learn more about this service...")
-    })
-  })
-
-  // Handle window resize for responsive adjustments
-  window.addEventListener("resize", () => {
-    const mobileSidebar = document.getElementById("mobileSidebar")
-    const mobileSidebarOverlay = document.getElementById("mobileSidebarOverlay")
-
-    if (window.innerWidth > 768) {
-      if (mobileSidebar) mobileSidebar.classList.remove("active")
-      if (mobileSidebarOverlay) mobileSidebarOverlay.classList.remove("active")
-      document.body.style.overflow = ""
-    }
-  })
 }
+
+window.addEventListener("resize", () => {
+  const mobileSidebar = document.getElementById("mobileSidebar")
+  const mobileSidebarOverlay = document.getElementById("mobileSidebarOverlay")
+
+  if (window.innerWidth > 768) {
+    if (mobileSidebar) mobileSidebar.classList.remove("active")
+    if (mobileSidebarOverlay) mobileSidebarOverlay.classList.remove("active")
+    document.body.style.overflow = ""
+  }
+})

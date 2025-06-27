@@ -39,7 +39,6 @@ button {
   }
 }
 
-/* Mobile Header */
 .ecom-mobile-header {
   display: flex;
   justify-content: space-between;
@@ -72,7 +71,6 @@ button {
   color: #333;
 }
 
-/* Mobile Product Image */
 .ecom-mobile-product-image {
   position: relative;
   background-color: #fff;
@@ -106,7 +104,6 @@ button {
   background-color: #4285f4;
 }
 
-/* Mobile Product Info */
 .ecom-mobile-product-info {
   background-color: #fff;
   padding: 20px;
@@ -145,7 +142,6 @@ button {
   margin-bottom: 20px;
 }
 
-/* Mobile Actions */
 .ecom-mobile-actions {
   display: flex;
   gap: 10px;
@@ -174,7 +170,6 @@ button {
   color: #666;
 }
 
-/* Mobile Details */
 .ecom-mobile-details {
   margin-bottom: 25px;
 }
@@ -197,7 +192,6 @@ button {
   font-weight: 500;
 }
 
-/* Mobile Description */
 .ecom-mobile-description {
   margin-bottom: 25px;
 }
@@ -215,7 +209,6 @@ button {
   font-weight: 500;
 }
 
-/* Mobile Supplier */
 .ecom-mobile-supplier {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -295,7 +288,6 @@ button {
   color: #4caf50;
 }
 
-/* Mobile Similar Products */
 .ecom-mobile-similar {
   margin-bottom: 25px;
 }
@@ -342,7 +334,6 @@ button {
   line-height: 1.3;
 }
 
-/* Desktop Styles */
 .ecom-breadcrumb {
   padding: 15px 0;
   font-size: 14px;
@@ -354,7 +345,6 @@ button {
   color: #4285f4;
 }
 
-/* Desktop Product Main */
 .ecom-product-main {
   display: flex;
   justify-content: center;
@@ -367,7 +357,6 @@ button {
 
 }
 
-/* Product Images */
 .ecom-product-images {
   flex: 1;
   max-width: 322px;
@@ -422,7 +411,6 @@ button {
   border-color: #4285f4;
 }
 
-/* Product Details */
 .ecom-product-details {
   flex: 1;
 }
@@ -455,7 +443,6 @@ button {
   color: #666;
 }
 
-/* Pricing */
 .ecom-pricing {
   display: flex;
   gap: 20px;
@@ -484,7 +471,6 @@ button {
   color: black;
 }
 
-/* Specifications */
 .ecom-specifications {
   margin-bottom: 25px;
 }
@@ -514,7 +500,6 @@ button {
   margin-top: 15px;
 }
 
-/* Supplier Sidebar */
 .ecom-supplier-sidebar {
   flex-shrink: 0;
 }
@@ -625,7 +610,6 @@ border: 1px solid #e0e0e0;
   gap: 8px;
 }
 
-/* Product Tabs and You May Like Container */
 .ecom-tabs-and-recommendations {
   display: flex;
   gap: 30px;
@@ -676,7 +660,6 @@ border: 1px solid #e0e0e0;
   margin-bottom: 15px;
 }
 
-/* You May Like Desktop Section */
 .ecom-you-may-like-desktop {
   flex: 1;
   background-color: #fff;
@@ -742,12 +725,10 @@ border: 1px solid #e0e0e0;
   font-weight: 600;
 }
 
-/* Recommendations */
 .ecom-recommendations {
   display: none;
 }
 
-/* Related Products */
 .ecom-related-products {
   background-color: #fff;
   padding: 30px;
@@ -800,7 +781,6 @@ border: 1px solid #e0e0e0;
   font-weight: 500;
 }
 
-/* Promotional Banner */
 .ecom-promo-banner {
   background: linear-gradient(45deg, #237CFF 0% 65%, #005ADE 65% 100%);  color: white;
   padding: 30px;
@@ -831,7 +811,6 @@ border: 1px solid #e0e0e0;
   font-weight: 500;
 }
 
-/* Responsive Design */
 @media (max-width: 992px) {
   fake-header,
   fake-nav,

@@ -1,27 +1,100 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Setup thumbnail gallery
+  initializeNavigation()
   setupThumbnailGallery()
-
-  // Setup mobile image indicators
   setupMobileImageIndicators()
-
-  // Setup favorite button functionality
   setupFavoriteButtons()
-
-  // Setup product tabs
   setupProductTabs()
-
-  // Setup back button functionality
   setupBackButton()
-
-  // Setup inquiry buttons
   setupInquiryButtons()
-
-  // Setup read more functionality
   setupReadMore()
+  setupProductInteractions()
 })
 
-// Setup thumbnail gallery for desktop
+function initializeNavigation() {
+  const logos = document.querySelectorAll(".brand-logo, .footer-brand")
+  logos.forEach((logo) => {
+    logo.addEventListener("click", () => {
+      window.location.href = "index.html"
+    })
+    logo.style.cursor = "pointer"
+  })
+
+  const searchBtn = document.querySelector(".search-btn")
+  const searchInput = document.querySelector(".search-input")
+
+  if (searchBtn && searchInput) {
+    searchBtn.addEventListener("click", () => {
+      const searchTerm = searchInput.value.trim()
+      if (searchTerm) {
+        window.location.href = `view.html?search=${encodeURIComponent(searchTerm)}`
+      }
+    })
+
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        searchBtn.click()
+      }
+    })
+  }
+
+  const cartIcons = document.querySelectorAll(".header-icons .i, .ecom-cart-icon")
+  cartIcons.forEach((icon) => {
+    const iconElement = icon.querySelector("i") || icon
+    if (
+      iconElement &&
+      (iconElement.classList.contains("fa-shopping-cart") || iconElement.classList.contains("fa-shopping-bag"))
+    ) {
+      icon.addEventListener("click", (e) => {
+        e.preventDefault()
+        window.location.href = "cart.html"
+      })
+      icon.style.cursor = "pointer"
+    }
+  })
+
+  const sidebarItems = document.querySelectorAll(".sidebar-menu li")
+  sidebarItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      window.location.href = `view.html?category=${encodeURIComponent(item.textContent)}`
+    })
+    item.style.cursor = "pointer"
+  })
+
+  const subscribeBtn = document.querySelector(".subscribe-btn")
+  const newsletterInput = document.querySelector(".newsletter-input")
+
+  if (subscribeBtn && newsletterInput) {
+    subscribeBtn.addEventListener("click", () => {
+      const email = newsletterInput.value.trim()
+      if (email && email.includes("@")) {
+        alert(`Thank you for subscribing with: ${email}`)
+        newsletterInput.value = ""
+      } else {
+        alert("Please enter a valid email address")
+      }
+    })
+
+    newsletterInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        subscribeBtn.click()
+      }
+    })
+  }
+
+  const breadcrumbLinks = document.querySelectorAll(".ecom-breadcrumb a")
+  breadcrumbLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault()
+      const linkText = link.textContent.toLowerCase()
+      if (linkText === "home") {
+        window.location.href = "index.html"
+      } else {
+        window.location.href = `view.html?category=${encodeURIComponent(linkText)}`
+      }
+    })
+  })
+}
+
 function setupThumbnailGallery() {
   const thumbnails = document.querySelectorAll(".ecom-thumbnail")
   const mainImage = document.getElementById("mainProductImage")
@@ -29,13 +102,8 @@ function setupThumbnailGallery() {
   if (thumbnails.length > 0 && mainImage) {
     thumbnails.forEach((thumbnail, index) => {
       thumbnail.addEventListener("click", () => {
-        // Remove active class from all thumbnails
         thumbnails.forEach((thumb) => thumb.classList.remove("active"))
-
-        // Add active class to clicked thumbnail
         thumbnail.classList.add("active")
-
-        // Update main image with correct path and extension
         if (index === 0) {
           mainImage.src = `./Image/cloth/tshirt.jpg`
         } else {
@@ -45,8 +113,6 @@ function setupThumbnailGallery() {
     })
   }
 }
-
-// Setup mobile image indicators
 function setupMobileImageIndicators() {
   const indicators = document.querySelectorAll(".ecom-indicator")
   const mobileMainImage = document.getElementById("mobileMainImage")
@@ -54,13 +120,8 @@ function setupMobileImageIndicators() {
   if (indicators.length > 0 && mobileMainImage) {
     indicators.forEach((indicator, index) => {
       indicator.addEventListener("click", () => {
-        // Remove active class from all indicators
         indicators.forEach((ind) => ind.classList.remove("active"))
-
-        // Add active class to clicked indicator
         indicator.classList.add("active")
-
-        // Update main image with correct path and extension
         if (index === 0) {
           mobileMainImage.src = `./Image/cloth/tshirt.jpg`
         } else {
@@ -70,8 +131,6 @@ function setupMobileImageIndicators() {
     })
   }
 }
-
-// Setup favorite button functionality
 function setupFavoriteButtons() {
   const favoriteButtons = document.querySelectorAll(".ecom-favorite-btn, .ecom-save-later-btn")
 
@@ -93,8 +152,6 @@ function setupFavoriteButtons() {
     })
   })
 }
-
-// Setup product tabs
 function setupProductTabs() {
   const tabHeaders = document.querySelectorAll(".ecom-tab-header")
   const tabPanes = document.querySelectorAll(".ecom-tab-pane")
@@ -102,12 +159,8 @@ function setupProductTabs() {
   tabHeaders.forEach((header) => {
     header.addEventListener("click", () => {
       const targetTab = header.getAttribute("data-tab")
-
-      // Remove active class from all headers and panes
       tabHeaders.forEach((h) => h.classList.remove("active"))
       tabPanes.forEach((p) => p.classList.remove("active"))
-
-      // Add active class to clicked header and corresponding pane
       header.classList.add("active")
       const targetPane = document.getElementById(targetTab)
       if (targetPane) {
@@ -116,31 +169,27 @@ function setupProductTabs() {
     })
   })
 }
-
-// Setup back button functionality
 function setupBackButton() {
   const backButtons = document.querySelectorAll(".ecom-back-button")
   backButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       e.preventDefault()
-      // Navigate to index.html
       window.location.href = "index.html"
     })
   })
 }
-
-// Setup inquiry buttons
 function setupInquiryButtons() {
   const inquiryButtons = document.querySelectorAll(".ecom-send-inquiry-btn")
   inquiryButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       e.preventDefault()
-      // In a real app, this would open an inquiry form or modal
-      alert("Inquiry form would open here!")
+      addLoadingState(button)
+      setTimeout(() => {
+        alert("Inquiry sent successfully!")
+      }, 2000)
     })
   })
 
-  // Setup seller profile button
   const sellerProfileButtons = document.querySelectorAll(".ecom-seller-profile-btn")
   sellerProfileButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -149,17 +198,14 @@ function setupInquiryButtons() {
     })
   })
 
-  // Setup promo button
   const promoButtons = document.querySelectorAll(".ecom-promo-button")
   promoButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       e.preventDefault()
-      alert("Shop now functionality would be implemented here!")
+      window.location.href = "view.html"
     })
   })
 }
-
-// Setup read more functionality
 function setupReadMore() {
   const readMoreLinks = document.querySelectorAll(".ecom-read-more")
   readMoreLinks.forEach((link) => {
@@ -167,7 +213,6 @@ function setupReadMore() {
       e.preventDefault()
       const description = link.previousElementSibling
       if (description) {
-        // Toggle between truncated and full text
         if (description.style.maxHeight) {
           description.style.maxHeight = null
           link.textContent = "Read more"
@@ -180,9 +225,7 @@ function setupReadMore() {
   })
 }
 
-// Add some interactive features for better UX
-document.addEventListener("DOMContentLoaded", () => {
-  // Add hover effects to related products
+function setupProductInteractions() {
   const relatedItems = document.querySelectorAll(".ecom-related-item")
   relatedItems.forEach((item) => {
     item.addEventListener("mouseenter", () => {
@@ -194,27 +237,29 @@ document.addEventListener("DOMContentLoaded", () => {
       item.style.transform = "translateY(0)"
       item.style.boxShadow = "none"
     })
+
+    item.addEventListener("click", () => {
+      window.location.href = "details.html"
+    })
+    item.style.cursor = "pointer"
   })
 
-  // Add click handlers for similar products
   const similarItems = document.querySelectorAll(".ecom-similar-item")
   similarItems.forEach((item) => {
     item.addEventListener("click", () => {
-      // In a real app, this would navigate to the product page
-      alert("Navigate to similar product!")
+      window.location.href = "details.html"
     })
+    item.style.cursor = "pointer"
   })
 
-  // Add click handlers for recommendation items
   const recommendationItems = document.querySelectorAll(".ecom-recommendation-item")
   recommendationItems.forEach((item) => {
     item.addEventListener("click", () => {
-      // In a real app, this would navigate to the product page
-      alert("Navigate to recommended product!")
+      window.location.href = "details.html"
     })
+    item.style.cursor = "pointer"
   })
 
-  // Add smooth scrolling for internal links
   const internalLinks = document.querySelectorAll('a[href^="#"]')
   internalLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -229,9 +274,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })
-})
+}
 
-// Add loading states for buttons
 function addLoadingState(button, duration = 2000) {
   const originalText = button.textContent
   button.textContent = "Loading..."
@@ -242,18 +286,3 @@ function addLoadingState(button, duration = 2000) {
     button.disabled = false
   }, duration)
 }
-
-// Enhanced inquiry button with loading state
-document.addEventListener("DOMContentLoaded", () => {
-  const inquiryButtons = document.querySelectorAll(".ecom-send-inquiry-btn")
-  inquiryButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault()
-      addLoadingState(button)
-      // Simulate API call
-      setTimeout(() => {
-        alert("Inquiry sent successfully!")
-      }, 2000)
-    })
-  })
-})
